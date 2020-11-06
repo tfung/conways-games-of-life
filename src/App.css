@@ -36,3 +36,58 @@
     transform: rotate(360deg);
   }
 }
+
+.grid {
+  border: 2px solid black;
+  width: 600px;
+  height: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-row {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+.grid-col {
+  border: 1px solid black;
+  flex: 1;
+}
+
+.grid-col-filled {
+  background: black;
+}
+
+.control {
+  width: 500px;
+  margin: 0 auto;
+  padding-top: 25px;
+}
+
+.control button {
+  padding: 15px;
+  margin-right: 10px;
+}
+
+.control > .rol-col-update-section {
+  margin-top: 10px;
+  /* border: 1px solid black; */
+  /* display: inline-flex; */
+}
+
+.control > .rol-col-update-section label {
+  display: inline-block;
+  width: 350px;
+  text-align: right;
+}
+
+.control > .rol-col-update-section * {
+  margin-top: 3px;
+}
+
+/* .control > .rol-col-update-section label > input{
+  margin: 2px;
+} */

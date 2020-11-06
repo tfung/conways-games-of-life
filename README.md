@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Conway's Game of Life
+
+This project is based off of an 'cellular automation' devised by British mathematician named John Horton Conway in 1970. See more [here](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
