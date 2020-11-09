@@ -2,13 +2,8 @@ import {useState, useEffect} from 'react';
 import './App.css';
 import Grid from './Grid';
 import Control from './Control';
-
-const DEFAULT_START_ROWS = 50;
-const DEFAULT_START_COLS = 50;
-
-const initGrid = (x = DEFAULT_START_ROWS, y = DEFAULT_START_COLS) => {
-  return new Array(x).fill(null).map(r => new Array(y).fill(false));
-};
+import {initGrid, updateGrid, getRandomCoordinate} from './helper';
+import {DEFAULT_START_ROWS, DEFAULT_START_COLS} from './constants';
 
 const handleUpdateCell = (gameState, setGameState) => (x, y) => {
   gameState.grid[x][y] = !gameState.grid[x][y];
@@ -17,12 +12,10 @@ const handleUpdateCell = (gameState, setGameState) => (x, y) => {
 
 const updateGameState = (gameState, setGameState) => {
   if (!gameState.isPaused) {
-    // TODO: add conways game of life logic, for now just randomly generate spots on the grid
-    const x = Math.floor(Math.random()*100 % gameState.numRows);
-    const y = Math.floor(Math.random()*100 % gameState.numCols);
-
-    gameState.grid[x][y] = !gameState.grid[x][y];
-    setGameState({...gameState})
+    setGameState({
+      ...gameState,
+      grid: updateGrid(gameState.grid, gameState.numRows, gameState.numCols)
+    })
   }
 };
 
@@ -45,8 +38,7 @@ const generateRandomGrid = (gameState, setGameState) => () => {
   const numberOfPoints = Math.floor(gameState.numRows * gameState.numCols * 0.3);
 
   for (let i=0 ; i<numberOfPoints; i++) {
-    const x = Math.floor(Math.random()*100 % gameState.numRows);
-    const y = Math.floor(Math.random()*100 % gameState.numCols);
+    const {x, y} = getRandomCoordinate(gameState.numRows, gameState.numCols);
 
     grid[x][y] = !grid[x][y];
   }
