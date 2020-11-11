@@ -1,6 +1,6 @@
 # Conway's Game of Life
 
-Conway's Game of Life is 'cellular automation' of devised by British mathematician John Horton Conway in 1970. This consists of four rules:
+Conway's Game of Life is a cellular automation devised by British mathematician John Horton Conway in 1970. This consists of four rules:
 
 1. Any live cell with fewer than two live neighbours dies, as if by underpopulation.
 1. Any live cell with two or three live neighbours lives on to the next generation.
